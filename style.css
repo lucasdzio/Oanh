@@ -465,7 +465,7 @@ body {
     transform: scale(var(--scale-no)) rotate(var(--rot-no));
     white-space: nowrap;
     position: relative;
-    z-index: 90;
+    z-index: 110;
 }
 
 /* Escaping Positioned NO Button (appended to body) */

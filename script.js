@@ -11,6 +11,7 @@ let lastEscapeTime = 0; // Cooldown giữa các lần nhảy để người dùn
 let easterEggTriggered = false;
 let heartFireworksInterval = null;
 let musicStarted = false;
+let suppressYesClickUntil = 0;
 
 // SVG path for beautiful hearts
 const heartSvgPath = `M16,28.261c0,0-14-7.904-14-17.15c0-5.109,4.141-9.25,9.25-9.25c3.084,0,5.811,1.508,7.5,3.834c1.689-2.326,4.416-3.834,7.5-3.834c5.109,0,9.25,4.141,9.25,9.25C30,20.357,16,28.261,16,28.261z`;
@@ -464,6 +465,7 @@ window.addEventListener("pointermove", (e) => {
 btnNo.addEventListener("pointerdown", (e) => {
     if (noCount >= 1 && noCount < 5) {
         // Đã ở chế độ chạy trốn → chạy trốn thay vì cho click
+        suppressYesClickUntil = Date.now() + 350;
         e.preventDefault();
         e.stopPropagation();
         escapeNoButton(e.clientX, e.clientY);
@@ -472,6 +474,10 @@ btnNo.addEventListener("pointerdown", (e) => {
 
 // ===== CLICK: Tăng noCount - CHỈ hoạt động khi nút chưa ở chế độ chạy trốn =====
 btnNo.addEventListener("click", (e) => {
+    suppressYesClickUntil = Date.now() + 350;
+    e.preventDefault();
+    e.stopPropagation();
+
     // Chỉ cho click khi chưa bắt đầu chạy trốn (noCount = 0)
     // hoặc khi người dùng may mắn click được (noCount 1-4)
     if (noCount < 5) {
@@ -481,6 +487,11 @@ btnNo.addEventListener("click", (e) => {
 
 // YES action
 btnYes.addEventListener("click", (e) => {
+    if (Date.now() < suppressYesClickUntil) {
+        e.preventDefault();
+        e.stopPropagation();
+        return;
+    }
     handleYesClick(e);
 });
 
