@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gửi Bé Iu Của Anh ❤️</title>
+    <!-- Google Fonts: Fredoka (cute headings) & Comfortaa (rounded body text) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Fredoka:wght@400;600;700&family=Playpen+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background for floating vector hearts -->
+    <div id="hearts-bg"></div>
+
+    <!-- Music Player Controls -->
+    <div id="music-controller" class="music-control" title="Bật/Tắt nhạc nền dễ thương">
+        <div class="music-disc">🎵</div>
+    </div>
+    <audio id="bg-music" loop>
+        <source src="https://assets.mixkit.co/active_storage/sfx/2869/2869-84.wav" type="audio/wav">
+        <!-- Fallback to a sweet piano MP3 track -->
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" type="audio/mp3">
+    </audio>
+
+    <!-- Main Container -->
+    <main class="app-container">
+        
+        <!-- ================= SCREEN 1 ================= -->
+        <section id="screen-1" class="screen active">
+            <div class="card desktop-card">
+                <!-- Cute Ribbon/Bow at top of card -->
+                <div class="card-ribbon">🎀</div>
+                
+                <div class="card-content-wrapper">
+                    <!-- Left Column: Flower bouquet with Speech Bubble -->
+                    <div class="card-media-side">
+                        <div class="speech-bubble-container">
+                            <div class="speech-bubble" id="speech-bubble">
+                                <span id="plea-text">Bé đừng giận anh nữa mà... 🥺</span>
+                            </div>
+                        </div>
+                        <div class="bouquet-img-wrapper">
+                            <img src="bouquet.jpg" alt="Bó hoa hồng tặng bé iu" class="bouquet-img">
+                        </div>
+                    </div>
+                    
+                    <!-- Right Column: Apology Message & Buttons -->
+                    <div class="card-text-side">
+                        <div class="card-header">
+                            <h1 class="title">Bé iu ơi 🥺</h1>
+                        </div>
+                        <div class="card-body">
+                            <p class="message-line">Hôm nay anh bận làm việc nên không dành nhiều thời gian cho em được.</p>
+                            <p class="message-line text-muted">Anh biết em buồn...</p>
+                            <p class="message-line highlight-apology">Anh thật sự xin lỗi ❤️</p>
+                            <p class="message-line question">Em tha lỗi cho anh nhé?</p>
+                        </div>
+                        
+                        <div class="card-footer">
+                            <div class="buttons-wrapper" id="buttons-container">
+                                <button id="btn-yes" class="btn btn-yes">YES 💖</button>
+                                <button id="btn-no" class="btn btn-no">NO 🤕</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SCREEN 2 ================= -->
+        <section id="screen-2" class="screen">
+            <div class="card success-card">
+                <!-- Hanging String Lights at top of success card -->
+                <div class="string-lights">
+                    <span class="light-bulb bulb-pink"></span>
+                    <span class="light-bulb bulb-yellow"></span>
+                    <span class="light-bulb bulb-blue"></span>
+                    <span class="light-bulb bulb-pink"></span>
+                    <span class="light-bulb bulb-yellow"></span>
+                    <span class="light-bulb bulb-blue"></span>
+                </div>
+
+                <!-- Hanging Polaroids relative to success card -->
+                <div class="polaroids-wrapper">
+                    <div class="polaroid-photo pol-left">
+                        <div class="pol-pin">📌</div>
+                        <div class="pol-img-placeholder">🌸</div>
+                        <p class="pol-caption">Thương em</p>
+                    </div>
+                    <div class="polaroid-photo pol-right">
+                        <div class="pol-pin">📌</div>
+                        <div class="pol-img-placeholder">🧸</div>
+                        <p class="pol-caption">Love You</p>
+                    </div>
+                </div>
+
+                <div class="card-ribbon">💖</div>
+                
+                <div class="card-header">
+                    <h1 class="title success-title">❤️ Anh xin lỗi bé iu của anh nhiều ❤️</h1>
+                </div>
+                <div class="card-body success-body">
+                    <ul class="apology-todo-list">
+                        <li><span class="list-icon">⏰</span> Mai em dậy muộn chút nhé.</li>
+                        <li><span class="list-icon">🥣</span> Nhớ ăn sáng đầy đủ.</li>
+                        <li><span class="list-icon">✏️</span> Thi thật tốt nhaaaa 📚✨</li>
+                        <li><span class="list-icon">💖</span> Anh yêu em nhiều lắm 💖</li>
+                    </ul>
+                    
+                    <!-- Cute small bouquet preview on screen 2 -->
+                    <div class="success-bouquet-preview">
+                        <img src="bouquet.jpg" alt="Bó hoa tặng bé iu" class="bouquet-img-small">
+                    </div>
+                    
+                    <p class="signature-line">From: Người yêu em ❤️</p>
+                </div>
+                
+                <div class="card-footer">
+                    <button id="btn-restart" class="btn btn-restart">🔄 Restart</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ================= EASTER EGG POPUP ================= -->
+    <div id="easter-egg-modal" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-ribbon">🥺👉👈</div>
+            <div class="modal-content">
+                <h2>😭 Thôi màaaaaaa...</h2>
+                <p>Anh sai thật rồi...</p>
+            </div>
+            <button id="btn-close-modal" class="btn-modal-close">OKIE THA LỖI CHO ANH 💖</button>
+        </div>
+    </div>
+
+    <!-- Container for heart burst explosion when YES is clicked -->
+    <div id="heart-burst-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
