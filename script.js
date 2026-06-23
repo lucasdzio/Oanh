@@ -177,9 +177,9 @@ function escapeNoButton(clientX, clientY) {
     // Cooldown giảm dần theo stage — càng về sau càng khó bắt
     const now = Date.now();
     let cooldown = 800;
-    if (noCount === 2) cooldown = 800;
-    else if (noCount === 3) cooldown = 800;
-    else if (noCount >= 4) cooldown = 750;
+    if (noCount === 2) cooldown = 600;
+    else if (noCount === 3) cooldown = 500;
+    else if (noCount >= 4) cooldown = 300;
     if (now - lastEscapeTime < cooldown) return;
     lastEscapeTime = now;
 
@@ -209,7 +209,7 @@ function escapeNoButton(clientX, clientY) {
         newX = Math.random() * (maxX - minX) + minX;
         newY = Math.random() * (maxY - minY) + minY;
         attempts++;
-    } while (Math.hypot(clientX - (newX + rect.width / 2), clientY - (newY + rect.height / 2)) < 150 && attempts < 100);
+    } while (Math.hypot(clientX - (newX + rect.width / 2), clientY - (newY + rect.height / 2)) < 180 && attempts < 100);
 
     btnNo.style.left = `${newX}px`;
     btnNo.style.top = `${newY}px`;
@@ -285,7 +285,7 @@ function updateButtonSizes() {
     if (noCount === 1) noScale = 0.8;
     else if (noCount === 2) noScale = 0.6;
     else if (noCount === 3) noScale = 0.45;
-    else if (noCount === 4) noScale = 0.3;
+    else if (noCount === 4) noScale = 0.2;
     else if (noCount >= 5) noScale = 0.0;
 
     document.documentElement.style.setProperty("--scale-no", noScale);
@@ -455,7 +455,7 @@ window.addEventListener("pointermove", (e) => {
 
     const distance = Math.hypot(e.clientX - btnCenterX, e.clientY - btnCenterY);
 
-    if (distance < 30) {
+    if (distance < 100) {
         escapeNoButton(e.clientX, e.clientY);
     }
 });
